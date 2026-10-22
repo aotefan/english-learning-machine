@@ -1,6 +1,8 @@
-# 英语学练机：ESP32-S3 开源 AI 英语口语陪练机
+# 英语卡壳？先说中文｜开源 AI 英语学练机
 
-**English Learning Machine — an open-source ESP32-S3 AI English speaking practice device.**
+**ESP32-S3 × 豆包 AI：把想说的中文变成英语示范，听完就能开口练。**
+
+English Learning Machine — an open-source ESP32-S3 AI English speaking practice device.
 
 把想说的中文或中英混合表达变成自然英语，听示范、开口练，再通过网页复习。英语学练机是一套可自行搭建的 **AI 英语口语练习硬件 + Python 云端服务**，基于小智开源项目，接入豆包语音识别、方舟语言模型和语音合成。
 

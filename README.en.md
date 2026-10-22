@@ -1,4 +1,4 @@
-# English Learning Machine: Open-Source ESP32-S3 AI English Speaking Practice
+# Stuck in English? Start in Chinese — Open-Source English Learning Machine
 
 **Turn Chinese or mixed Chinese–English speech into natural English, hear an example, and practice speaking with a DIY voice device.**
 
