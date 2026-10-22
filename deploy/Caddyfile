@@ -1,0 +1,32 @@
+# Replace the example hostname with your own TLS hostname.
+# One hostname serves device traffic and authenticated admin pages.
+{
+	admin off
+	servers {
+		protocols h1 h2
+	}
+}
+
+
+http://127.0.0.1:8080 {
+	bind 127.0.0.1
+	respond /healthz "ok" 200
+}
+
+english.example.com {
+	@favicon path /favicon.ico
+	handle @favicon {
+		respond 204
+	}
+	@voice path /xiaozhi/v1/
+	handle @voice {
+		reverse_proxy voice:18000
+	}
+	@admin path / /login /logout /admin.css /learning /learning.js /monitor /monitor.js /costs /costs.js /api/learning /api/learning/*/review /api/learning/*/practice /api/learning/*/select /api/learning/*/dismiss /api/requests /api/costs /api/diagnostics /api/budget /api/device /api/device/volume /api/device/mode
+	handle @admin {
+		reverse_proxy voice:18001
+	}
+	handle {
+		respond "Not found" 404
+	}
+}

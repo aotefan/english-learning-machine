@@ -1,0 +1,18 @@
+# English Learning Machine / 英语学练机
+
+> Open-source ESP32-S3 AI English speaking practice: Chinese or mixed-language expression, spoken examples, conversation and review. A developer prototype using Python and Doubao cloud services.
+
+## Canonical public sources
+- [Source repository](https://github.com/aotefan/english-learning-machine): MIT integration code and third-party notices.
+- [Chinese overview](https://github.com/aotefan/english-learning-machine/blob/main/README.md): current behavior, setup and limitations.
+- [English overview](https://github.com/aotefan/english-learning-machine/blob/main/README.en.md): English summary.
+- [Architecture](https://github.com/aotefan/english-learning-machine/blob/main/docs/architecture.md): components and data flow.
+- [Setup](https://github.com/aotefan/english-learning-machine/blob/main/docs/quickstart.md): default STANDBY mode and private configuration.
+- [FAQ](https://github.com/aotefan/english-learning-machine/blob/main/docs/faq.md): direct answers to common questions.
+- [Privacy](https://github.com/aotefan/english-learning-machine/blob/main/docs/privacy.md): cloud data flow and retention boundaries.
+- [Validation](https://github.com/aotefan/english-learning-machine/blob/main/docs/validation.md): what has and has not been verified.
+
+## Scope
+Recommended daily configuration is half-duplex. Full-duplex/AEC is experimental. Cloud inference requires the deployer's own account and may incur charges. No proven learning-outcome, accuracy or fixed-latency claim. No production credentials or recordings are included.
+
+This is a reading index, not a crawler access-control file or a guarantee of AI search inclusion.

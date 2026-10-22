@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>英语终端 · 学习复习</title>
+<link rel="stylesheet" href="/admin.css">
+<div class="site-header"><div class="site-header-inner">
+  <a class="brand" href="/"><span class="brand-mark">ENGLISH</span><span class="brand-context">/ learning</span></a>
+  <nav class="site-nav" aria-label="主导航"><a href="/" aria-current="page">学习复习</a><a href="/monitor">实时监听</a><a href="/costs">查看费用</a></nav>
+  <form class="logout-form" action="/logout" method="post"><button type="submit">退出登录</button></form>
+</div></div>
+<main class="page">
+  <header class="page-heading"><div><h1>学习复习</h1><p>先自己表达，需要时给一点提示。</p></div><button id="refresh" class="text-button">刷新</button></header>
+  <section class="learning-progress" aria-label="复习进度概览">
+    <div><span>到期复习</span><strong id="progress-due">—</strong><small>句</small></div>
+    <div><span>已挑选表达</span><strong id="progress-selected">—</strong><small>句</small></div>
+    <div><span>自评独立说出</span><strong id="progress-independent">—</strong><small>次</small></div>
+    <div><span>记录需要帮助</span><strong id="progress-assisted">—</strong><small>次</small></div>
+  </section>
+  <p class="progress-note">统计最近 7 天保留的复习记录，相同表达合并计句。跟读次数不计为独立表达；自评记录不代表已经掌握。</p>
+  <div class="review-filters" role="group" aria-label="选择复习列表">
+    <button type="button" data-review-view="due" aria-pressed="true">到期复习</button>
+    <button type="button" data-review-view="needs_help" aria-pressed="false">最近需要帮助</button>
+    <button type="button" data-review-view="all" aria-pressed="false">全部表达</button>
+  </div>
+  <p id="status" role="status">正在读取学习记录…</p>
+  <div class="microphone-setting"><label for="microphone">录音麦克风</label><select id="microphone"><option value="">系统默认麦克风</option></select><span>录音时请确认卡片上的音量条会动。</span></div>
+  <div id="cards" class="review-list"></div>
+  <section class="candidate-section" aria-labelledby="candidate-heading">
+    <h2 id="candidate-heading">最近表达 · 挑选复习内容</h2>
+    <p class="page-note">新句子不会自动加入复习。同一设备的相同英文会合并，已经加入复习的句子不会重复出现；新记录不会重置复习安排。“忽略”隐藏这一组候选，原有请求记录仍按 7 天规则保留。</p>
+    <p id="candidate-status" role="status"></p>
+    <div id="candidates" class="candidate-list"></div>
+  </section>
+  <p class="page-note">先自己说，点“我说好了，核对”后确认结果；卡住时可看句首提示或直接看答案。提示后说出、看答案后练习都记为需要帮助。意思一致的其他正确说法也可以，由孩子或家长确认，不自动评分，也不代表已经掌握。每个到期轮次只记录一次；未到期可自由练习。</p>
+  <p class="page-note">复习卡来自最近 7 天真实设备已播放且经手动挑选的句子，每个列表最多显示 50 条；测试句子不列入。“最近需要帮助”只显示最近一次复习被记为需要帮助的句子，未到期也可自由练习。当前标签页记住这轮是否用过帮助，刷新后仍保留，不保存句子副本。“已跟读”只记录一次网页录音练习；录音仅供本页回听，不上传，刷新或切换列表后即删除。文字记录到期会删除。</p>
+</main>
+<script src="/learning.js"></script>
+</html>

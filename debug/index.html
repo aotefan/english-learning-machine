@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>英语终端 · 本地调试</title>
+<style>
+:root {color-scheme:light;font-family:system-ui,sans-serif;color:#18312e;background:#f4f6f5}
+body {max-width:1100px;margin:32px auto;padding:0 20px} h1 {font-size:26px;margin-bottom:8px}
+p {line-height:1.7} .muted {color:#596967} header {display:flex;align-items:center;justify-content:space-between;gap:20px}
+button {border:1px solid #486760;border-radius:6px;padding:10px 16px;background:white;color:#18312e;cursor:pointer}
+button:focus-visible {outline:3px solid #268472;outline-offset:3px}
+#status {padding:12px 16px;background:#e1eee9;border-radius:6px} #status.error {background:#f9e5df;color:#822d20}
+article {background:white;border:1px solid #d7dfdc;border-radius:8px;padding:18px;margin:14px 0}
+.top {display:flex;justify-content:space-between;gap:12px;font-size:14px} .badge {color:#19614e;font-weight:600}
+.failure {color:#ab3520} .sentence {font-size:20px;margin:12px 0;overflow-wrap:anywhere}
+.label {font-size:12px;color:#596967;display:block;margin-bottom:3px} .timings {display:flex;flex-wrap:wrap;gap:10px 24px;font-size:14px}
+details {margin-top:14px;font-size:13px;color:#596967} code {overflow-wrap:anywhere} summary {cursor:pointer}
+.warning {color:#822d20;overflow-wrap:anywhere} footer {font-size:13px;margin-top:24px}
+@media(max-width:550px) {body {margin:18px auto;padding:0 12px} h1 {font-size:22px} header {align-items:flex-start} .top {flex-direction:column;gap:4px}}
+</style>
+<header><div><h1>英语终端 · 本地调试</h1><p class="muted">查看最近 20 次请求，定位识别、翻译和播放问题。</p></div><button id="pause" type="button">暂停刷新</button></header>
+<p id="status" role="status">正在读取请求日志…</p>
+<p class="muted">每秒刷新。链路完成不代表翻译准确；设备播放回执也不等于已确认听到声音。总耗时包含录音上传与音频返回。</p>
+<main id="requests"></main>
+<footer class="muted">仅显示当前选定日志，可能包含软件测试请求；此页不计算硬件验收成绩，也不判断设备在线状态。关闭页面不影响语音服务。</footer>
+<script src="/app.js"></script>
+</html>

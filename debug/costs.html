@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>英语终端 · 费用账单</title>
+<link rel="stylesheet" href="/admin.css">
+<div class="site-header"><div class="site-header-inner">
+  <a class="brand" href="/"><span class="brand-mark">ENGLISH</span><span class="brand-context">/ learning</span></a>
+  <nav class="site-nav" aria-label="主导航"><a href="/">学习复习</a><a href="/monitor">实时监听</a><a href="/costs" aria-current="page">查看费用</a></nav>
+  <form class="logout-form" action="/logout" method="post"><button type="submit">退出登录</button></form>
+</div></div>
+<main class="page cost-page">
+<header class="page-heading"><div><h1>费用账单</h1><p>语音识别、英语生成、语音合成的用量与花费。</p></div><button id="refresh" class="text-button">刷新</button></header>
+<p id="status" role="status">正在读取费用记录…</p>
+<div class="summary">
+<article><p>累计已知费用估算</p><div class="value" id="total">—</div><p class="muted">按接口返回用量计算</p></article>
+<article><p>豆包实际账单</p><div class="value pending">待核对</div><p class="muted">尚未接入豆包账单，不能将估算当作实际扣款</p></article>
+<article><p>用量未确认的调用</p><div class="value" id="unknown">—</div><p class="muted">中断或超时可能已经计费</p></article>
+</div>
+<article class="cost-section"><h2>运行状态与额度</h2><div id="runtime">正在读取运行状态…</div><p class="muted">配置齐全不代表豆包接口已通过验证。在线数包含诊断客户端，不能当作真实设备验收。</p></article>
+<article class="cost-section"><h2>每日额度设置</h2>
+<form id="budget-form" class="budget-form">
+  <label for="budget-turns">每日语音轮数<input id="budget-turns" name="turn_limit" type="number" inputmode="numeric" min="1" max="1000000" step="1" required disabled></label>
+  <label for="budget-money">每日费用保护上限（元）<input id="budget-money" name="limit_cny" type="number" inputmode="decimal" min="0.01" max="1000000" step="0.01" required disabled></label>
+  <button id="budget-save" type="submit" disabled>保存额度</button>
+</form>
+<p class="muted">两项上限先达到的会暂停语音处理。费用上限按调用前的保守预留计算；实际花费请看上方估算和供应商账单。</p>
+<p class="muted">保存后下一轮立即生效，重启后保留；不会清零今日已用额度。每日按 UTC 零点重置。</p>
+<p class="muted">设备若已因额度耗尽显示“暂停”，单击 BOOT 退出自动监听，再双击重新开启。</p>
+<p id="budget-status" role="status" aria-live="polite">正在读取额度设置…</p>
+</article>
+<article class="cost-section"><h2>各功能花费</h2><div class="scroll"><table><thead><tr><th>功能</th><th>调用次数</th><th>已报告用量</th><th>费用估算</th><th>待核对调用</th></tr></thead><tbody id="stages"></tbody></table></div></article>
+<article class="cost-section"><h2>语音链路耗时</h2><p id="diagnostic-counts" class="muted"></p><div class="scroll"><table><thead><tr><th>环节</th><th>样本数</th><th>平均耗时</th><th>P95</th></tr></thead><tbody id="latencies"></tbody></table></div><p class="muted">仅统计最近最多100次请求、2000条事件，最多保留7天。缺失计时显示“未测量”；总耗时包含录音和音频下发，播放回执不等于实测扬声器首音。</p><div id="diagnostic-recent"></div></article>
+<article class="cost-section"><h2>每日账单</h2><p class="muted">按 UTC 日期统计，显示最近 90 个有调用的日期。预留额度是调用前的保守预算占用，不是实际扣款。</p><div class="scroll"><table><thead><tr><th>日期</th><th>轮数</th><th>识别估算</th><th>英语生成估算</th><th>合成估算</th><th>预算预留</th></tr></thead><tbody id="days"></tbody></table></div></article>
+<article class="cost-section"><h2>最近调用明细</h2><div id="recent"></div></article>
+<article class="cost-section"><h2>云服务器实际账单</h2><div id="infrastructure">等待账单同步。</div><p class="muted">与语音 API 估算分开列示。预付年费不能当作每月费用；本月账单可能延迟或调整，支付状态需在阿里云核对。</p></article>
+<p class="page-note">仅统计此云端语音服务。域名等其他固定成本和其他入口使用同一密钥产生的费用不在估算内；免费额度及套餐抵扣由供应商账单确定。页面不显示儿童原始音频、转写或密钥。</p>
+</main>
+<script src="/costs.js"></script>
+</html>

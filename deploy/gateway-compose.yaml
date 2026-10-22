@@ -1,0 +1,36 @@
+name: english-edge-gateway
+services:
+  caddy:
+    image: public.ecr.aws/docker/library/caddy:2.11.7-alpine@sha256:d8542f48d34a9cf4e4c11a478865229840e87e4c96ea3f439101f31a5d35f75f
+    restart: unless-stopped
+    read_only: true
+    cap_drop: [ALL]
+    cap_add: [NET_BIND_SERVICE]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 192m
+    cpus: 0.5
+    pids_limit: 64
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /opt/english-edge/gateway/Caddyfile:/etc/caddy/Caddyfile:ro
+      - /opt/english-edge/gateway/data:/data
+      - /opt/english-edge/gateway/config:/config
+    networks: [voice]
+    healthcheck:
+      test: [CMD, wget, -q, --spider, "http://127.0.0.1:8080/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"
+networks:
+  voice:
+    external: true
+    name: english-edge_default

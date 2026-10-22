@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>英语终端 · 实时监听</title>
+<link rel="stylesheet" href="/admin.css">
+<div class="site-header"><div class="site-header-inner">
+  <a class="brand" href="/"><span class="brand-mark">ENGLISH</span><span class="brand-context">/ learning</span></a>
+  <nav class="site-nav" aria-label="主导航"><a href="/">学习复习</a><a href="/monitor" aria-current="page">实时监听</a><a href="/costs">查看费用</a></nav>
+  <form class="logout-form" action="/logout" method="post"><button type="submit">退出登录</button></form>
+</div></div>
+<main class="page cost-page">
+  <header class="page-heading"><div><h1>实时监听</h1><p>查看设备连接与最近请求，不保存录音。</p></div><button id="pause" class="text-button" type="button">暂停刷新</button></header>
+  <p id="status" role="status">正在读取云端事件…</p>
+  <div class="monitor-stats" aria-label="当前状态">
+    <div><span>在线连接</span><strong id="connections">—</strong></div>
+    <div><span>云端模式</span><strong id="mode">—</strong></div>
+    <div><span>最近事件</span><strong id="latest">—</strong></div>
+  </div>
+  <p id="availability" class="monitor-availability" role="status">正在读取可用额度…</p>
+  <section class="device-panel" aria-labelledby="device-title">
+    <div class="device-panel-heading"><h2 id="device-title">设备控制</h2><span id="device-online">读取中</span></div>
+    <div class="device-controls">
+      <fieldset><legend>喇叭音量 <span id="device-volume">—</span></legend>
+        <form id="volume-form"><label for="volume-range">目标音量 <output id="volume-target">100%</output></label>
+          <input id="volume-range" type="range" min="0" max="100" step="1" value="100" disabled>
+          <div class="actions"><button type="submit" disabled>设置音量</button><button id="volume-max" type="button" disabled>最大音量</button></div>
+        </form>
+      </fieldset>
+      <fieldset><legend>交流模式 <span id="device-teaching">—</span></legend>
+        <div class="actions mode-actions"><button type="button" data-mode-kind="teaching" data-mode="express" aria-pressed="false" disabled>英语表达</button><button type="button" data-mode-kind="teaching" data-mode="chat" aria-pressed="false" disabled>陪练模式</button></div>
+        <p class="device-help">英语表达：把原话转成英文。陪练：用英语回应、交流。</p>
+      </fieldset>
+      <fieldset><legend>收音方式 <span id="device-listening">—</span></legend>
+        <div class="actions mode-actions"><button type="button" data-mode-kind="listening" data-mode="auto" aria-pressed="false" disabled>自动监听</button><button type="button" data-mode-kind="listening" data-mode="manual" aria-pressed="false" disabled>按键输入</button></div>
+        <p class="device-help">切换时请等当前收音、播报结束。</p>
+      </fieldset>
+    </div>
+    <p id="device-message" role="status" aria-live="polite">正在读取设备状态…</p>
+  </section>
+  <div class="monitor-section-heading"><h2>最近请求记录</h2><span id="count">最多 20 条</span></div>
+  <div id="requests" class="monitor-list"></div>
+  <p class="page-note">每 2 秒读取最近 7 天的设备事件，不列出诊断测试请求。识别文本和回复内容只在登录后显示；设备播放回执不等于已确认听到声音。在线连接数可能包含诊断客户端，此页不计算硬件验收成绩。</p>
+</main>
+<script src="/monitor.js"></script>
+</html>

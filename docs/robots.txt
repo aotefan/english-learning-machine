@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aotefan.github.io/english-learning-machine/sitemap.xml

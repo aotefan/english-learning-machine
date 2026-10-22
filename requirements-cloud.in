@@ -1,0 +1,15 @@
+# No Torch/MLX/Whisper/Qwen/Kokoro/Silero inference dependencies.
+# Reuse the existing xiaozhi server + official Ark runtime SDK.
+volcengine-python-sdk[ark]
+websockets==14.2
+numpy>=1.26,<3
+opuslib_next==1.1.5
+pydub==0.25.1
+PyYAML>=6,<7
+loguru==0.7.3
+requests>=2.32,<3
+httpx>=0.28,<0.29
+aiohttp>=3.13,<4
+python-dotenv>=1,<2
+jinja2>=3.1,<4
+psutil>=7,<8

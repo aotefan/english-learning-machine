@@ -1,0 +1,6 @@
+; Test-only macOS profile. Not a production firewall or a LAN device profile.
+(version 1)
+(allow default)
+(deny network*)
+(allow network-inbound (local ip "localhost:*"))
+(allow network-outbound (remote ip "localhost:*"))

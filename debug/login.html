@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>登录 · 英语终端</title>
+<style>
+:root{color-scheme:light;font-family:system-ui,-apple-system,"PingFang SC",sans-serif;color:#27323b;background:#f7f9fb}
+*{box-sizing:border-box}body{min-height:100vh;margin:0;display:grid;place-items:center;padding:24px}
+main{width:min(100%,440px);padding:38px;background:#fff;border:1px solid #dce3e8;border-radius:5px;box-shadow:0 8px 34px #27323b0a}
+.mark{font:650 13px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.08em;color:#008eb7}
+h1{font-size:28px;letter-spacing:-.03em;margin:35px 0 8px;font-weight:650}p{color:#78838e;line-height:1.6;margin:0 0 28px}
+label{display:block;font-size:13px;font-weight:650;margin-bottom:9px}input{width:100%;height:48px;padding:0 14px;border:1px solid #b8c4cc;border-radius:4px;font:inherit;background:#fff;color:#27323b}
+input:focus-visible,button:focus-visible{outline:2px solid #008eb7;outline-offset:2px;border-color:#008eb7}
+button{width:100%;height:48px;margin-top:18px;border:0;border-radius:4px;background:#008eb7;color:#fff;font:inherit;font-weight:650;cursor:pointer}
+button:hover{background:#007797}.error{margin:14px 0 0;color:#a04336;font-size:13px}.remember-note{margin:18px 0 0;font-size:12px;line-height:1.7}footer{margin-top:24px;color:#88939c;font:12px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;text-align:center}
+@media(max-width:480px){body{padding:16px}main{padding:28px 22px}h1{font-size:25px}}
+</style>
+<main>
+  <div class="mark" aria-hidden="true">ENGLISH / learning</div>
+  <h1>欢迎回来</h1>
+  <p>请输入管理口令，继续查看学习复习、实时监听和费用。</p>
+  <form action="/login" method="post">
+    <input type="hidden" name="next" value="__NEXT__">
+    <label for="password">管理口令</label>
+    <input id="password" name="password" type="password" autocomplete="current-password" required autofocus>
+    __ERROR__
+    <button type="submit">进入英语终端</button>
+  </form>
+  <p class="remember-note">本浏览器会记住登录状态，关闭后再打开也可继续访问。主动退出、清除浏览器数据或长期未访问后，需要重新输入口令。</p>
+  <footer>仅限授权人员访问</footer>
+</main>
+</html>

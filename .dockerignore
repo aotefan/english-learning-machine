@@ -1,0 +1,20 @@
+# Defense in depth. Production builds use scripts/package_cloud.py's allowlist.
+.git
+.secrets
+.venv*
+models
+logs
+artifacts
+benchmark
+research
+upstream/firmware
+**/.git
+**/.env
+**/.config.yaml
+**/__pycache__
+**/data
+**/tmp
+**/logs
+**/models
+**/*.wav
+**/*.pcm

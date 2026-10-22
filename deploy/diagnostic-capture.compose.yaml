@@ -1,0 +1,22 @@
+# Temporary, explicit standby capture for one physical voice request.
+# Requires a user-approved recording window; restore compose.yaml afterward.
+services:
+  voice:
+    restart: "no"
+    command:
+      - python
+      - scripts/run_cloud.py
+      - --env-file
+      - /run/secrets/cloud.env
+      - --devices-file
+      - /run/secrets/devices.json
+      - --admin-file
+      - /run/secrets/admin.json
+      - --host
+      - 0.0.0.0
+      - --capture-audio-dir
+      - /state/diagnostic-audio
+      - --capture-audio-count
+      - "1"
+      - --capture-audio-seconds
+      - "900"
